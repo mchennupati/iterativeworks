@@ -30,15 +30,11 @@ export default function Layout({ children }) {
 
   return (
     
-    <div className='flex flex-col flex-grow min-h-screen my-36 mx-96'>
+    <div className='flex flex-col flex-grow w-full min-h-screen my-20 md:flex md:flex-row'>
 
-      <header className='top-0 flex items-center justify-center h-40 font-semibold uppercase bg-white-200'>
-      
-         <img className = 'h-40' src='/logo.png' alt='logo' />
 
-      </header>
-      <div className='flex flex-col flex-1 my-20 md:flex-row'>
-        <aside className='w-full bg-white-100 md:w-60'>
+      <div className='flex flex-col flex-1 mx-20 my-50 md:flex-row'>
+        <aside className='w-60 bg-white-100 md:w-50'>
           <nav>
             <ul>
               {menuItems.map(({ href, title }) => (
@@ -59,11 +55,7 @@ export default function Layout({ children }) {
         </aside>
         <main className='flex-1'>{children}</main>
       </div>
-      <footer>
-      <p className = 'items-center justify-center font-semibold' >
-        Iterative Works Gmbh, c/o WeWork Oskar-von-Miller Ring 20, Munich 80333, DE
-      </p>
-    </footer>
+
     </div>
   );
 }
