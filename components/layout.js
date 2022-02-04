@@ -96,6 +96,20 @@ export default function Layout({ children }) {
       <div className="flex flex-col flex-1 mx-3  md:mx-20 my-50 md:flex-row">
         <aside className="hidden md:block bg-white-100">
           <nav>
+            <div
+              style={{
+                width: 100,
+                height: 70,
+              }}
+              className="relative"
+            >
+              <Image
+                src={"/logo.png"}
+                objectFit="contain"
+                alt="Genrobotics-Logo"
+                layout="fill"
+              />
+            </div>
             <ul>
               {menuItems.map(({ href, title }) => (
                 <li className="m-2" key={title}>
@@ -124,11 +138,10 @@ export default function Layout({ children }) {
             <Grid item sm={6}>
               <div
                 style={{
-                  // position: "relative",
-                  width: 150,
+                  width: 140,
                   height: 70,
                 }}
-                className="relative w-150 h-75"
+                className="relative"
               >
                 <Image
                   src={"/logo.png"}

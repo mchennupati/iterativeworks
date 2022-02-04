@@ -1,6 +1,8 @@
+import { useMediaQuery } from "@mui/material";
 import Link from "next/link";
 
 function MarketWise() {
+  const matches = useMediaQuery("(min-width:992px)");
   return (
     <div className="flex flex-col h-full mx-10 my-5 font-bold items-left">
       <h1 className="font-bold text-blue-600 hover:text-blue-800 visited:text-purple-600 text-[25px]">
@@ -43,7 +45,7 @@ function MarketWise() {
         playsInline
         autoPlay
         controls
-        width="60%"
+        width={matches ? "60%" : "100%"}
         source
         src="/marketwise-video.mp4"
         type="video/mp4"
