@@ -6,10 +6,10 @@ import {
   Box,
   Grid,
   Divider,
-  Collapse,
   IconButton,
+  useMediaQuery,
 } from "@mui/material";
-import { MenuOutlined, CloseOutlined } from "@mui/icons-material";
+import { MenuOutlined } from "@mui/icons-material";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -21,40 +21,45 @@ export default function Layout({ children }) {
   const showDrawer = () => {
     setVisible(true);
   };
+  const matches = useMediaQuery("(min-width:992px)");
 
   const onClose = () => {
+    setVisible(false);
+  };
+
+  const hideDrawer = () => {
     setVisible(false);
   };
 
   const list = () => (
     <Box>
       <List>
-        <Link href="/">
-          <ListItem className="cursor-pointer">
+        <Link href="/" passHref>
+          <ListItem onClick={hideDrawer} className="cursor-pointer">
             <ListItemText primary="Home" />
           </ListItem>
         </Link>
         <Divider />
-        <Link href="/marketwise">
-          <ListItem className="cursor-pointer">
+        <Link href="/marketwise" passHref>
+          <ListItem onClick={hideDrawer} className="cursor-pointer">
             <ListItemText primary="Marketwise" />
           </ListItem>
         </Link>
         <Divider />
-        <Link href="/keepthekidsbusy">
-          <ListItem className="cursor-pointer">
+        <Link href="/keepthekidsbusy" passHref>
+          <ListItem onClick={hideDrawer} className="cursor-pointer">
             <ListItemText primary="Keep the kids busy" />
           </ListItem>
         </Link>
         <Divider />
-        <Link href="/about">
-          <ListItem className="cursor-pointer">
+        <Link href="/about" passHref>
+          <ListItem onClick={hideDrawer} className="cursor-pointer">
             <ListItemText primary="About" />
           </ListItem>
         </Link>
         <Divider />
-        <Link href="/contact">
-          <ListItem className="cursor-pointer">
+        <Link href="/contact" passHref>
+          <ListItem onClick={hideDrawer} className="cursor-pointer">
             <ListItemText primary="Contact" />
           </ListItem>
         </Link>
@@ -143,18 +148,19 @@ export default function Layout({ children }) {
                 </span>
               )}
             </Grid>
-
-            <Drawer
-              PaperProps={{
-                sx: { width: "50%" },
-              }}
-              anchor="left"
-              open={visible}
-              onBackdropClick={onClose}
-              variant="temporary"
-            >
-              {list()}
-            </Drawer>
+            {!matches && (
+              <Drawer
+                PaperProps={{
+                  sx: { width: "50%" },
+                }}
+                anchor="left"
+                open={visible}
+                onBackdropClick={onClose}
+                variant="temporary"
+              >
+                {list()}
+              </Drawer>
+            )}
           </Grid>
         </div>
         <main className="container">{children}</main>
