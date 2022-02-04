@@ -98,10 +98,10 @@ export default function Layout({ children }) {
           <nav>
             <div
               style={{
-                width: 100,
-                height: 70,
+                width: 125,
+                height: 125,
               }}
-              className="relative"
+              className="relative ml-2"
             >
               <Image
                 src={"/logo.png"}
@@ -128,18 +128,20 @@ export default function Layout({ children }) {
           </nav>
         </aside>
         <div className="block md:hidden">
-          <Grid
+          <div
+            className="container flex flex-row align-center grid grid-cols-3"
             // className=
-            container
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
+            // container
+            // direction="row"
+            // justifyContent="space-between"
+            // alignItems="center"
           >
-            <Grid item sm={6}>
+            <div />
+            <div>
               <div
                 style={{
                   width: 140,
-                  height: 70,
+                  height: 80,
                 }}
                 className="relative"
               >
@@ -150,9 +152,9 @@ export default function Layout({ children }) {
                   layout="fill"
                 />
               </div>
-            </Grid>
+            </div>
 
-            <Grid item sm={6}>
+            <div className="flex justify-end items-center">
               {!visible && (
                 <span className="trigger-menu">
                   <IconButton onClick={showDrawer}>
@@ -160,13 +162,13 @@ export default function Layout({ children }) {
                   </IconButton>
                 </span>
               )}
-            </Grid>
+            </div>
             {!matches && (
               <Drawer
                 PaperProps={{
                   sx: { width: "50%" },
                 }}
-                anchor="left"
+                anchor="right"
                 open={visible}
                 onBackdropClick={onClose}
                 variant="temporary"
@@ -174,7 +176,7 @@ export default function Layout({ children }) {
                 {list()}
               </Drawer>
             )}
-          </Grid>
+          </div>
         </div>
         <main className="container">{children}</main>
       </div>
