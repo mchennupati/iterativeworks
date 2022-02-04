@@ -19,10 +19,12 @@ export default function Contact() {
 
   <p className = "my-5 font-semibold"> For each of the apps, you can go to the dedicated page and talk to us via the chat.</p>
 
- 
+  <h3 className = "my-5 font-semibold text-[24px]"><Link href="/about">Want to Work Together ?</Link></h3>
+   
+   <p className = "my-5 font-semibold">We love to work with a diverse bunch of people who want to do a good job of whatever they take up, first find out more about us :) <Link className = 'font-bold text-blue-600' href= "/about"><a>here</a></Link> and drop us an email !...</p>
 
 
-  
+
 
 
 </div>
